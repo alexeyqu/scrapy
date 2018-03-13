@@ -34,7 +34,7 @@ class Spider(object_ref):
 
     @property
     def logger(self):
-        logger = logging.getLogger(self.name)
+        logger = logging.getLogger(self.__class__.__module__)
         return logging.LoggerAdapter(logger, {'spider': self})
 
     def log(self, message, level=logging.DEBUG, **kw):

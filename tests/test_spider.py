@@ -107,7 +107,7 @@ class SpiderTest(unittest.TestCase):
         spider = self.spider_class('example.com')
         with LogCapture() as l:
             spider.logger.info('test log msg')
-        l.check(('example.com', 'INFO', 'test log msg'))
+        l.check((spider.__class__.__module__, 'INFO', 'test log msg'))
 
         record = l.records[0]
         self.assertIn('spider', record.__dict__)
